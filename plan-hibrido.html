@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Híbrido | BioNutre S.A.S.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #1565c0;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+            --white: #ffffff;
+            --gray: #757575;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: rgba(255,255,255,0.85);
+            border-radius: 8px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1b5e20;
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 1rem auto 0;
+        }
+        
+        /* About Project */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Work Modality */
+        .modality-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        
+        .modality-table th, .modality-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .modality-table th {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .modality-table tr:nth-child(even) {
+            background-color: rgba(46, 125, 50, 0.1);
+        }
+        
+        .modality-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        
+        .presencial {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .hibrido {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        .remoto {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        /* Tools */
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tool-card {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .tool-card img {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        
+        /* Indicators */
+        .indicators-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .indicator-card {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .indicator-title {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .indicator-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 0;
+            transition: width 1s ease-in-out;
+        }
+        
+        /* Contact */
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Bio<span>Nutre</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#proyecto">Sobre el Proyecto</a></li>
+                    <li><a href="#modalidad">Modalidad Laboral</a></li>
+                    <li><a href="#herramientas">Herramientas</a></li>
+                    <li><a href="#indicadores">Indicadores</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Plan Híbrido BioNutre</h1>
+            <p>En BioNutre S.A.S. hemos desarrollado un modelo de trabajo híbrido que combina la productividad del trabajo remoto con los beneficios de la colaboración presencial, mejorando el clima laboral, la eficiencia operativa y la satisfacción de nuestro personal.</p>
+            <a href="#proyecto" class="btn">Conoce más</a>
+        </div>
+    </section>
+
+    <!-- About Project -->
+    <section id="proyecto">
+        <div class="container">
+            <h2 class="section-title">Sobre el Proyecto</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>BioNutre S.A.S.</h3>
+                    <p>Somos una empresa mediana con 60 empleados, dedicada a la producción y comercialización de suplementos nutricionales naturales, ubicada en Medellín, Colombia.</p>
+                    <p>Luego de la pandemia, mantuvimos el trabajo remoto por casi dos años, pero detectamos problemas como falta de cohesión entre áreas, retrasos en proyectos conjuntos, pérdida de cultura organizacional, y al mismo tiempo, la necesidad de mantener flexibilidad laboral por solicitud de los empleados.</p>
+                    <h3>Objetivo del plan híbrido</h3>
+                    <p>Diseñar un modelo de trabajo híbrido que combine lo mejor de ambos mundos: la productividad del trabajo remoto con los beneficios de la colaboración presencial, mejorando el clima laboral, la eficiencia operativa y la satisfacción del personal.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Equipo de trabajo colaborando">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Modality -->
+    <section id="modalidad">
+        <div class="container">
+            <h2 class="section-title">Modalidad Laboral</h2>
+            <table class="modality-table">
+                <thead>
+                    <tr>
+                        <th>Departamento</th>
+                        <th>Modalidad</th>
+                        <th>Días Presenciales</th>
+                        <th>Días Remotos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dirección</td>
+                        <td><span class="modality-badge hibrido">Híbrido</span></td>
+                        <td>Lunes, Miércoles</td>
+                        <td>Martes, Jueves, Viernes</td>
+                    </tr>
+                    <tr>
+                        <td>Producción</td>
+                        <td><span class="modality-badge presencial">Presencial</span></td>
+                        <td>Lunes a Viernes</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Ventas</td>
+                        <td><span class="modality-badge hibrido">Híbrido</span></td>
+                        <td>Martes, Jueves</td>
+                        <td>Lunes, Miércoles, Viernes</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing</td>
+                        <td><span class="modality-badge remoto">Remoto</span></td>
+                        <td>-</td>
+                        <td>Lunes a Viernes</td>
+                    </tr>
+                    <tr>
+                        <td>Recursos Humanos</td>
+                        <td><span class="modality-badge hibrido">Híbrido</span></td>
+                        <td>Lunes, Jueves</td>
+                        <td>Martes, Miércoles, Viernes</td>
+                    </tr>
+                    <tr>
+                        <td>TI</td>
+                        <td><span class="modality-badge remoto">Remoto</span></td>
+                        <td>-</td>
+                        <td>Lunes a Viernes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Tools -->
+    <section id="herramientas">
+        <div class="container">
+            <h2 class="section-title">Herramientas Digitales</h2>
+            <div class="tools-container">
+                <div class="tool-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/1200px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png" alt="Microsoft Teams">
+                    <h3>Microsoft Teams</h3>
+                    <p>Plataforma de comunicación y colaboración para reuniones virtuales y chat.</p>
+                </div>
+                <div class="tool-card">
+                    <img src="https://th.bing.com/th/id/OIP.QW5YhJNO89AaOA9bQwif1AHaEK?r=0&rs=1&pid=ImgDetMain">
+                    <h3>Asana</h3>
+                    <p>Herramienta de gestión de proyectos y seguimiento de tareas.</p>
+                </div>
+                <div class="tool-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/2295px-Google_Drive_icon_%282020%29.svg.png" alt="Google Drive">
+                    <h3>Google Drive</h3>
+                    <p>Almacenamiento en la nube y colaboración en documentos.</p>
+                </div>
+                <div class="tool-card">
+                    <img src="https://logos-marcas.com/wp-content/uploads/2021/03/Trello-Logo.png">
+                    <h3>Trello</h3>
+                    <p>Tableros Kanban para organización visual de proyectos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Indicators -->
+    <section id="indicadores">
+        <div class="container">
+            <h2 class="section-title">Indicadores</h2>
+            <div class="indicators-container">
+                <div class="indicator-card">
+                    <h3 class="indicator-title">Satisfacción del empleado</h3>
+                    <div class="indicator-value">78%</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 78%"></div>
+                    </div>
+                    <p>Meta: 85% para final de año</p>
+                </div>
+                <div class="indicator-card">
+                    <h3 class="indicator-title">Entrega de proyectos a tiempo</h3>
+                    <div class="indicator-value">65%</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 65%"></div>
+                    </div>
+                    <p>Meta: 80% para final de año</p>
+                </div>
+                <div class="indicator-card">
+                    <h3 class="indicator-title">Participación en actividades culturales</h3>
+                    <div class="indicator-value">45%</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 45%"></div>
+                    </div>
+                    <p>Meta: 60% para final de año</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de contacto</h3>
+                    <p><strong>BioNutre S.A.S.</strong></p>
+                    <p>Medellín, Colombia</p>
+                    <p>Teléfono: +57 4 123 4567</p>
+                    <p>Email: info@bionutre.com</p>
+                    <p>Horario: Lunes a Viernes, 8am - 5pm</p>
+                </div>
+                <div class="contact-form">
+                    <h3>Envíanos un mensaje</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#proyecto">Sobre el Proyecto</a>
+                <a href="#modalidad">Modalidad Laboral</a>
+                <a href="#herramientas">Herramientas</a>
+                <a href="#indicadores">Indicadores</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <p>&copy; 2023 BioNutre S.A.S. - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Animate progress bars on scroll
+        const progressBars = document.querySelectorAll('.progress');
+        
+        function animateProgressBars() {
+            progressBars.forEach(bar => {
+                const targetWidth = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = targetWidth;
+                }, 100);
+            });
+        }
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        document.querySelector('#indicadores').style.opacity = '0';
+        setTimeout(() => {
+            document.querySelector('#indicadores').style.opacity = '1';
+            observer.observe(document.querySelector('#indicadores'));
+        }, 100);
+    </script>
+</body>
+</html>
